@@ -532,6 +532,7 @@ position: fixed;
 top: 50%;
 margin-top: -150px; 
 right: 0;
+z-index: 2;
     i{
     color: white;
     font-size: 25px;
@@ -2097,6 +2098,24 @@ display: none;
     }
 }
 @media screen and (max-width: 1200px){
+    .open-navmenu{
+    background-color: @black;
+    z-index: 5;
+    position: relative;
+        i{
+        color: @primary;
+        }
+        a{
+        color: white;
+        }
+        .btn_closebars{
+        color: @primary!important;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        font-size: 25px;
+        }
+    }
     .header-desk{
     display: block;
     height: auto;
