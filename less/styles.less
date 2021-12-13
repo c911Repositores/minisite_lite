@@ -223,6 +223,9 @@ align-items: center;
 .btn_bars, .btn_closebars{
 transition: all 0.2s linear;    
 }
+.movile_btn_closebars{
+display: none;
+}
 .nav-desk__agent-img{
 width: 50px;
 height: 50px;
@@ -233,7 +236,7 @@ transition: all 0.25s linear;
 cursor: pointer;
 }
 .nav-desk__agent-img:hover{
-filter: contrast(130%);
+transform: scale(1.05);
 }
 .nav-desk__container{
 display: flex;
@@ -300,7 +303,7 @@ object-fit: cover;
 width: 70%;
 height: 100%;
     .slick-next{
-    right: 50px;
+    right: 30px;
     }
     .slick-prev{
     left: 30px;
@@ -549,6 +552,9 @@ transition: all 0.3s linear;
 background-color: #57794f;
 padding-right: 38px;
 }
+#share_open{
+right: -100px;
+}
 .share__open{
 background-color: @black;
 padding: 20px;
@@ -627,8 +633,27 @@ left: -46px;
 background-color: white;
 border-radius: 50px;
 padding: 15px 39px;
+display: flex;
+align-items: center;
     img{
     width: 63px;
+    }
+    i{
+    font-size: 63px;
+    }
+    a:first-child{
+    color: @black;
+    margin-right: 15px;
+    transition: all 0.25s linear;
+    }
+    a:first-child:hover{
+    color: @gray-dark;
+    }
+    a:last-child img{
+    transition: all 0.25s linear;
+    }
+    a:last-child:hover img{
+    opacity: 0.6;
     }
 }
 
@@ -913,7 +938,7 @@ justify-content: center;
     z-index: 1;
     }
     .slick-next {
-    right: 30px;
+    right: 15px;
     z-index: 1;
     }
     .slick-dots li.slick-active button:before {
@@ -996,7 +1021,7 @@ width: 100%;
 position: relative;
 width: 320px;
 height: 65px;
-margin: 5px;
+//margin: 5px;
 float: left;
 box-sizing: border-box;
 margin-bottom: 20px;
@@ -1050,8 +1075,8 @@ background-color: @primary;
 }
 .desk-documents__checkbox-list{
 display: grid;
-grid-template-columns: 1fr 1fr;
-justify-content: space-around;
+grid-template-columns: auto auto;
+justify-content: space-between;
 justify-items: center;
 }
 .desk-documents__checkbox{
@@ -1072,6 +1097,7 @@ padding: 62px 0;
 }
 .desk-documents__checkbox-title{
 padding-bottom: 40px;
+margin-left: 5px;
 }
 .desk-documents__checkbox-form{
 width: 50%;
@@ -1146,6 +1172,7 @@ padding: 62px 0;
     p{
     font-weight: @font-bold;
     padding: 0 70px 40px 70px;
+    text-align: center;
     }
 }
 .desk-documents__downloadbtn{
@@ -1232,7 +1259,7 @@ height: auto;
     z-index: 1;
     }
     .slick-next {
-    right: 30px;
+    right: 15px;
     z-index: 1;
     }
     .slick-dots li.slick-active button:before {
@@ -1298,6 +1325,14 @@ padding: 0 73px;
 }
 .mobile-agency__box-second{
 display: none;
+}
+.desk-agency{
+    .desk-agency__contact table td a{
+    color: black;
+    }
+    .desk-agency__contact table a:hover{
+    color: @primary;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -1366,6 +1401,10 @@ justify-content: center;
     .cbutton{
     margin-top: 30px;  
     }
+    h2, p{
+    padding-left: 100px;
+    padding-right: 100px;
+    }
 }
 .contact-us__container{
 display: grid;
@@ -1410,7 +1449,7 @@ padding-top: 180px;
 }
 .desk-brochure__container{
 background-color: @gray;
-display: grid;
+display: grid; 
 grid-template-columns: 40% 60%;
 }
 .desk-brochure__image{
@@ -1429,6 +1468,10 @@ background-color: @gray;
     .desk-documents__checkbox-form{
     width: 100%;
     margin-top: 30px;
+    }
+    h2, p{
+    padding-left: 100px;
+    padding-right: 100px;
     }
 }
 
@@ -1455,6 +1498,18 @@ grid-template-areas:
 display: flex;
 align-items: center;
 justify-content: space-evenly;
+    a{
+    color: black;
+    }
+    a:hover p{
+    text-decoration: underline;
+    }
+    tr td a:hover{
+    text-decoration: underline;
+    }
+    tr td i{
+    color: @primary-dark;
+    }
 }
 .footer_contact{
     td{
@@ -1829,8 +1884,23 @@ display: none;
     .contact-us__container{
     grid-template-columns: 40% 60%;
     }
-    .desk-documents__checkbox-form{
+    .desk-documents__checkbox-form{ 
     padding: 0;
+    }
+    .contact-us__form{
+        h2, p{
+        padding-right: 0;
+        padding-left: 0;
+        }
+    }
+    .desk-brochure__form{
+        h2, p{
+        padding-right: 0;
+        padding-left: 0;
+        }
+    }
+    .doc-form-size{
+    padding: 0 100px;
     }
 }
 @media screen and (max-width: 1500px){
@@ -2114,9 +2184,10 @@ display: none;
         a{
         color: white;
         }
-        .btn_closebars{
+        .movile_btn_closebars{
         color: @primary!important;
         position: absolute;
+        display: block;
         right: 30px;
         top: 30px;
         font-size: 25px; 
@@ -2216,7 +2287,7 @@ display: none;
     position: fixed;
     display: flex;
     justify-content: center;
-    padding-top: 70px;
+    //padding-top: 70px;
     }
     .open-navmenu ul{
     width: 420px;
@@ -2691,6 +2762,12 @@ display: none;
 @media screen and (max-width: 600px){
     .header-desk__slide{
     height: 386px;
+        .slick-next{
+        right: 17px;
+        }
+        .slick-prev{
+        left: 17px;
+        }
     }
     .header-desk__inforoom .header-desk__measures{
     margin: 0 20px;
@@ -2771,14 +2848,17 @@ display: none;
     z-index: 2;
     }
     .share__close{
-    padding: 15px 16px;
+    padding: 22px;
+        i{
+        font-size: 30px;
+        }
     }
 }
 @media screen and (max-width: 500px){
     .mobile-measurements-container .table-stye1{
     font-size: 13px;
         th{
-        padding: 13px 2px;
+        padding: 13px 8px;
         }
     }
     .mobile-measurements-container .tab_content__total p{
@@ -2887,7 +2967,6 @@ display: none;
     .mobile-map__btnpoints{
         .mobile-map__selectpoints{
         padding: 14px 10px;
-        width: auto;
         }
     }
     .desk-agency__slide,
